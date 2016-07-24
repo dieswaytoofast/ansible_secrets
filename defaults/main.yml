@@ -1,15 +1,18 @@
 ---
 
 # These can be passed on the command line, or be part of a config file. Up to you
+# A list of secrets (url, directory, file)
+# Accessed via 'with_dict' as ansible_secrets_list.key, ansible_secrets_list.value.url , etc.
+ansible_secrets_list:
+  my_app:
+    # The S3 url in which the secrets is stored
+    url: s3://some_url_here    #e.g. s3://bucketname_foo/a/complicated/key/here
 
-# The S3 url in which the secrets is stored
-#ansible_secrets_url: s3://some_url_here    #e.g. s3://bucketname_foo/a/complicated/key/here
+    # The secrets directory (note, this is always relative to `playbook_dir`!!!
+    directory: /foo/bar/baz
 
-# The secrets directory
-#ansible_secrets_directory: /foo/bar/baz
-
-# The secrets filename. Note that this needs to be compatible with dockers env-file
-#ansible_secrets_file: some_filename_here.yml   # e.g. secrets.txt
+    # The secrets filename. Note that this needs to be compatible with dockers env-file
+    file: some_filename_here.yml   # e.g. secrets.txt
 
 # The username that owns "stuff"
 ansible_secrets_username: vagrant

@@ -1,5 +1,7 @@
 ---
 
+
+
 - name: Make sure that the dest directory exists
   include: ansible_secrets_ensure_dir.yml
   when: ansible_secrets_get_secrets_from_s3 is defined or ansible_secrets_get_secrets_from_bounce_node is defined
