@@ -19,3 +19,7 @@ ansible_secrets_username: vagrant
 
 # The groupname that owns "stuff"
 ansible_secrets_groupname: vagrant
+
+# Where to find aws related stuff
+ansible_aws_paths:
+  aws: /usr/local/bin/aws
