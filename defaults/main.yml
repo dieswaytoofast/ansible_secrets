@@ -23,3 +23,7 @@ ansible_secrets_groupname: vagrant
 # Where to find aws related stuff
 ansible_aws_paths:
   aws: /usr/local/bin/aws
+
+# Defaults
+ansible_secrets_get_secrets_from_bounce_node: false
+ansible_secrets_get_secrets_from_s3: false
