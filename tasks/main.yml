@@ -5,6 +5,9 @@
 - name: Make sure that the dest directory exists
   include: ansible_secrets_ensure_dir.yml
   when: ansible_secrets_get_secrets_from_s3 or ansible_secrets_get_secrets_from_bounce_node
+  with_items: "{{ ansible_secrets_dicts_list | default([]) }}"
+  loop_control:
+    loop_var: ansible_secrets_dict
 
 - name: Download the secrets file to the dest dir from s3
   include: ansible_secrets_get_secrets_from_s3.yml
